@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern JS</title>
+</head>
+<body>
+    <h1>Modern Javascript - Social Network MERN</h1>
+    
+    <script>
+        
+        // function sayHi(){
+        //     console.log("HEEEE")
+        // }
+        // sayHi()
+
+        //Arrow function
+
+        // let nepal = {
+        //     // add property
+        //     mountains: ['Everest', 'Fish Tail', 'Annapurna'],
+        //     // add method
+        //     printWithDash: function(){
+        //         console.log('Inside printWithDash', this)
+        //         setTimeout( () => {
+        //             // console.log('Inside setTimeout', this);
+        //             console.log(this.mountains.join(" - "))
+        //         }, 3000)
+        //     }
+
+        // }
+        
+        // // alert(nepal.mountains);
+        // nepal.printWithDash()
+
+        //DESTRUCTURING
+        // let thingsToDo = {
+        //     morning: "Exercise",
+        //     afternoon: "Work",
+        //     evening: "Code",
+        //     night: ["Sleep", "Dream"]
+        // }
+
+        // let { morning, night} = thingsToDo
+        // console.log(morning, "\n", night)
+
+        // let uniStudent = ({name, university}) => {
+        //     console.log(`${name} from ${university}`)
+        // };
+
+        // uniStudent({name:"Great", university:"Universityyy"})
+
+        // // Destructuring arrays
+        // let [, ,firstMountain] = ['Everest', 'Fish Tail', 'Annapurna'];
+        // console.log(firstMountain)
+    
+        // RESTRUCTURING
+        // let name = 'Everest';
+        // let height = 8000;
+        // let output = function() {
+        //     console.log(`Mt. ${this.name} is ${this.height} meter tall`)
+        // }
+
+        // let adventureClimbing = { name, height, output};
+        // console.log(adventureClimbing);
+        // adventureClimbing.output();
+
+        // let adventureClimbing = {
+        //     name: 'Everest',
+        //     height: 4500,
+        //     output() {
+        //         console.log(`Mt. ${this.name} is ${this.height} meter tall`)
+        //     }
+        // }
+
+        // console.log(adventureClimbing)
+        // console.log(adventureClimbing.output);
+
+        //  SPREAD/REST OPERATOR
+        // SPREAD OPERATOR
+        // let mountains = ['Everest', 'Fish Tail', 'Annapurna']
+        // let mountainsFromJapan = ['Fuji', 'Taiwai'];
+        
+        // let allMountains = [...mountains, ...mountainsFromJapan];
+        // console.log(allMountains);
+
+        // let day = {
+        //     breakfast: 'Toast with milk',
+        //     lunch: 'Rice with chicken curry'
+        // };
+
+        // let night = {
+        //     dinner: 'Noodle soup'
+        // }
+
+        // let picnic = { ...day, ...night };
+        // console.log(picnic);
+
+        // //REST OPERATOR 
+        // let rivers = ['Sunkoshi', 'Tamaki', 'Saptakoshi'];
+        // let [first, ...rest] = rivers
+
+        // console.log(first);
+        // console.log(rest);
+
+        // CLASSES
+
+        // Old way of creating classes
+        // function Holiday(destination, days) {
+        //     this.destination = destination;
+        //     this.days = days;
+        // }
+
+        // Holiday.prototype.info = function(){
+        //     console.log(this.destination + " | " + this.days + " days");
+        // }
+
+        // let nepal = new Holiday("Nepal", 30);
+        // console.log(nepal);
+        // console.log(nepal.info);
+
+        // With Es6
+        // Super class
+        class Holiday {
+            constructor(destination, days) {
+                this.destination = destination;
+                this.days = days
+            }
+            
+            info() {
+                console.log(`${this.destination} will take ${this.days} days`)
+            }
+        }
+
+        
+        // const trip = new Holiday("Nepal", 30)
+        // console.log(trip.info());
+
+        // Sub class
+        class Expedition extends Holiday {
+            constructor(destination, days, gear) {
+                super(destination, days)
+                this.gear = gear
+            }
+
+            info() {
+                super.info();
+                console.log(`Bring your ${this.gear.join(" and your ")}`)
+            }
+        }
+
+        const tripWithGear = new Expedition("Everest", 30, ["Sunglasses", "Flags", "Camera"]);
+        tripWithGear.info();
+    </script>
+</body>
+</html>
